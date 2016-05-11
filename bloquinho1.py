@@ -16,7 +16,7 @@ gameexit = False
 
 lead_x = 300
 lead_y = 300
-lead_x_change = 0
+
 
 clock = pygame.time.Clock()
 
@@ -26,10 +26,9 @@ while not gameexit:
             gameexit = True
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                lead_x_change = -2
+                lead_x -= 100
             if event.key == pygame.K_RIGHT:
-                lead_x_change = 2
-    lead_x += lead_x_change
+                lead_x += 100
     gamedisplay.fill(white)
     pygame.draw.rect(gamedisplay, black, [lead_x, lead_y, 100, 100])
     pygame.display.update()

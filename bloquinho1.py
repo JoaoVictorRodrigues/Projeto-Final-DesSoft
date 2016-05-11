@@ -4,6 +4,8 @@ import pygame
 white = (255,255,255)
 black = (0,0,0)
 red = (255,0,0)
+verde = (0,255,0)
+blue = (0,0,255)
 
 pygame.init()
 
@@ -34,8 +36,25 @@ while not gameexit:
     pygame.display.update()
 
     clock.tick(100)
+    
+def tela_inicial():
+    
+    intro = True
+    
+    while intro:
+        gamedisplay.fill(verde)
+        message_to_screen("bem vindo ao ATRASADOS DO INSPER",
+                          red,
+                          -100,
+                          "large")
+        message_to_screen("seu objetivo nesse jogo é chegar no horario pra a aula de tutoria",
+                          blue,
+                          -30)
+        pygame.display.update()
+        clock.tick(15)
+        
 
-            
+
 pygame.quit()
 
 quit()

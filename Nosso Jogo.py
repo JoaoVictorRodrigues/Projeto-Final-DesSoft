@@ -41,9 +41,10 @@ while not gameExit:
            elif event.key==pygame.K_RIGHT:
                 if 100<=lead_x<300:
                     lead_x +=100
-                    #lead_y_change =+10
-                    
-       # if ParedeY>650:
+             
+        if ParedeY>650:
+          randParedeX= random.randrange(100,300)
+          ParedeY= 0  
             
      ParedeY += lead_y_change
      gameDisplay.fill(white) 

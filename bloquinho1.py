@@ -14,7 +14,7 @@ display_height = 500
 pygame.init()
 
 gamedisplay = pygame.display.set_mode((display_height, display_width))
-pygame.display.set_caption("sigiane lixo")
+pygame.display.set_caption("        ")
 
 pygame.display.update()
 
@@ -36,20 +36,18 @@ def tela_inicial():
     intro = True
     
     while intro:
-        gamedisplay.fill(verde)
+        gamedisplay.fill(white)
         message_to_screen("bem vindo ao ATRASADOS DO INSPER",
                           red)
         message_to_screen("seu objetivo nesse jogo é chegar no horario pra a aula de tutoria",
                           blue)
         pygame.display.update()
         clock.tick(15)
-        
-
 
 clock = pygame.time.Clock()
 
 x = tela_inicial()
-time.sleep(5)
+
 while not gameexit:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -64,8 +62,6 @@ while not gameexit:
     pygame.display.update()
 
     clock.tick(100)
-    
-font = pygame.font.SysFont(None, 25)
 
 
 message_to_screen("you lose", red)

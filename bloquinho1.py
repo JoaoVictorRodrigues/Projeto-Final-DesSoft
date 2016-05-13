@@ -36,13 +36,16 @@ def tela_inicial():
     intro = True
     
     while intro:
-        gamedisplay.fill(white)
+        gamedisplay.fill(verde)
         message_to_screen("bem vindo ao ATRASADOS DO INSPER",
                           red)
         message_to_screen("seu objetivo nesse jogo é chegar no horario pra a aula de tutoria",
                           blue)
         pygame.display.update()
         clock.tick(15)
+        intro = False
+        time.sleep(3)
+        
 
 clock = pygame.time.Clock()
 

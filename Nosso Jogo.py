@@ -8,10 +8,13 @@ black=(0,0,0)
 gray=(128,128,128)
 blue=(0,0,255)
 
+
 clock = pygame.time.Clock()
 
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
+
+img = pygame.image.load('C:/Stickboy.png')
 
 pygame.display.update()
 
@@ -22,6 +25,7 @@ lead_y=550
 randParedeX= random.randrange(100,300)
 ParedeY= 0
 
+lead_y_change=0
 
 while not gameExit:
      for event in pygame.event.get():
@@ -47,7 +51,8 @@ while not gameExit:
      #Rua 
      pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
      #Personagem     
-     pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
+     #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
+     gameDisplay.blit(img, (lead_x,lead_y))
      #Barreiras
      pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
      

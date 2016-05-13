@@ -2,7 +2,7 @@ import pygame
 import random
 pygame.init()
 
-
+red =(255,0,0)
 white=(255,255,255)
 black=(0,0,0)
 gray=(128,128,128)
@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
-img = pygame.image.load('C:/Stickboy.png')
+img = pygame.image.load("C:\Stickboy.png")
 
 pygame.display.update()
 
@@ -32,6 +32,10 @@ while not gameExit:
         if event.type==pygame.QUIT:         
             gameExit=True
         
+        if ParedeY>500:
+          randParedeX= random.randrange(100,300)
+          ParedeY= 0  
+        
         if event.type == pygame.KEYDOWN:
 
            lead_y_change =+10
@@ -43,6 +47,12 @@ while not gameExit:
            elif event.key==pygame.K_RIGHT:
                 if 100<=lead_x<300:
                     lead_x +=100
+
+
+
+             
+       
+            
 
      ParedeY += lead_y_change
      gameDisplay.fill(white) 
@@ -57,6 +67,10 @@ while not gameExit:
      pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
      
     
+
+     Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,150,20])
+     Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX,ParedeY,100,20])
+     
      pygame.display.update()
      clock.tick(20)
      

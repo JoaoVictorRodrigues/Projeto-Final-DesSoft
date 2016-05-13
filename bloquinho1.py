@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
-
+import time
 
 
 white = (255,255,255)
@@ -23,9 +23,33 @@ gameexit = False
 lead_x = display_height/2
 lead_y = display_height/2
 
+font = pygame.font.SysFont(None, 25)
+
+def message_to_screen(msg, color):
+    screen_text = font.render(msg, True, color)
+    gamedisplay.blit(screen_text, [display_width/2, display_height/2])
+    
+    
+    
+def tela_inicial():
+    
+    intro = True
+    
+    while intro:
+        gamedisplay.fill(verde)
+        message_to_screen("bem vindo ao ATRASADOS DO INSPER",
+                          red)
+        message_to_screen("seu objetivo nesse jogo é chegar no horario pra a aula de tutoria",
+                          blue)
+        pygame.display.update()
+        clock.tick(15)
+        
+
 
 clock = pygame.time.Clock()
 
+x = tela_inicial()
+time.sleep(5)
 while not gameexit:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,32 +65,12 @@ while not gameexit:
 
     clock.tick(100)
     
-font = pygame.font.Sysfont(None, 25)
-
-def message_to_screen(msg, color):
-    screen_text = font.render(msg, True, color)
-    gamedisplay.blit(screen_text, [display_width/2, display_height/2])
-    
-    
-    
-def tela_inicial():
-    
-    intro = True
-    
-    while intro:
-        gamedisplay.fill(verde)
-        message_to_screen("bem vindo ao ATRASADOS DO INSPER",
-                          red,
-                          -100,
-                          "large")
-        message_to_screen("seu objetivo nesse jogo é chegar no horario pra a aula de tutoria",
-                          blue,
-                          -30)
-        pygame.display.update()
-        clock.tick(15)
-        
+font = pygame.font.SysFont(None, 25)
 
 
+message_to_screen("you lose", red)
+pygame.display.update()
+time.sleep(2)
 pygame.quit()
-
 quit()
+

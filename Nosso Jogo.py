@@ -15,7 +15,8 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
 img = pygame.image.load("C:\Stickboy.png")
-
+img2 = pygame.image.load("C:\Rua2.png")
+img3 = pygame.image.load("C:\Carro.png")
 pygame.display.update()
 
 gameExit= False
@@ -58,18 +59,17 @@ while not gameExit:
      gameDisplay.fill(white) 
      
      
-     #Rua 
-     pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
+     #Rua      
+     #pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
+     gameDisplay.blit(img2,(100,0,350,650))        
      #Personagem     
      #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
      gameDisplay.blit(img, (lead_x,lead_y))
      #Barreiras
-     pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
-     
+     #pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
+     gameDisplay.blit(img3,[randParedeX,ParedeY,100,20])
     
 
-     Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,150,20])
-     Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX,ParedeY,100,20])
      
      pygame.display.update()
      clock.tick(20)

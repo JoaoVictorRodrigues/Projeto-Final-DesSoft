@@ -20,10 +20,9 @@ gameExit= False
 lead_x=200
 lead_y=550 
 
-randParedeX= random.randrange(100,300)
+randParedeX1= random.randrange(100,200)
+randParedeX2= random.randrange(220,300)
 ParedeY= 0
-
-
 lead_y_change= 0
 
 while not gameExit:
@@ -31,7 +30,7 @@ while not gameExit:
         if event.type==pygame.QUIT:         
             gameExit=True
         
-        if ParedeY>500:
+        if ParedeY>600:
           randParedeX= random.randrange(100,300)
           ParedeY= 0  
         
@@ -57,11 +56,11 @@ while not gameExit:
      #Personagem     
      pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
      #Barreiras
-     Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,150,20])
-     Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX,ParedeY,100,20])
+     Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX1,ParedeY,100,20])
+     Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX2,ParedeY,100,20])
      
      pygame.display.update()
-     clock.tick(20)
+     clock.tick(10)
      
 pygame.quit()
 

@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
-#img = pygame.image.load("C:\Stickboy.png")
+#img = pygame.image.load("C:\Projeto-Final-DesSoft\Stickboy.png")
 
 pygame.display.update()
 
@@ -34,7 +34,7 @@ while not gameExit:
         if event.type==pygame.QUIT:         
             gameExit=True
         
-        if ParedeY>600:
+        if ParedeY>650:
           randParedeX= random.randrange(100,300)
           ParedeY= 0  
         
@@ -52,9 +52,6 @@ while not gameExit:
 
 
 
-             
-       
-            
 
      ParedeY += lead_y_change
      gameDisplay.fill(white) 
@@ -67,7 +64,8 @@ while not gameExit:
      #gameDisplay.blit(img, (lead_x,lead_y))
      #Barreiras
      Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX1,ParedeY,100,20])
-     Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX2,ParedeY,100,20])
+     
+    # Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX2,ParedeY,100,20])
     
      
      pygame.display.update()

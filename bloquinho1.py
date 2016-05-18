@@ -12,7 +12,7 @@ display_width = 800
 display_height  = 600
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Slither')
+pygame.display.set_caption('Sigi lixo')
 
 
 

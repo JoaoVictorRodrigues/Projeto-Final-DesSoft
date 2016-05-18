@@ -14,7 +14,14 @@ clock = pygame.time.Clock()
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
+<<<<<<< HEAD
 #img = pygame.image.load("C:\Projeto-Final-DesSoft\Stickboy.png")
+=======
+img = pygame.image.load("C:\Stickboy.png")
+img2 = pygame.image.load("C:\Rua Melhor.png")
+img3 = pygame.image.load("C:\Carro.png")
+
+>>>>>>> 94912a25e00383ce57b125adade02a1b42091dce
 
 pygame.display.update()
 
@@ -23,8 +30,8 @@ gameExit= False
 lead_x=200
 lead_y=550 
 
-randParedeX1= random.randrange(100,200)
-randParedeX2= random.randrange(220,300)
+randParedeX= random.randrange(100,200)
+#randParedeX2= random.randrange(220,300)
 ParedeY= 0
 lead_y_change= 0
 
@@ -57,17 +64,24 @@ while not gameExit:
      gameDisplay.fill(white) 
      
      
-     #Rua 
-     pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
+     #Rua      
+     #pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
+     gameDisplay.blit(img2,(100,50,350,650))        
      #Personagem     
-     pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
-     #gameDisplay.blit(img, (lead_x,lead_y))
+     #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
+     gameDisplay.blit(img, (lead_x,lead_y))
      #Barreiras
+<<<<<<< HEAD
      Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX1,ParedeY,100,20])
      
     # Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX2,ParedeY,100,20])
+=======
+     #pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
+     gameDisplay.blit(img3,[randParedeX,ParedeY,100,20])
+>>>>>>> 94912a25e00383ce57b125adade02a1b42091dce
     
-     
+
+
      pygame.display.update()
      clock.tick(10)
      

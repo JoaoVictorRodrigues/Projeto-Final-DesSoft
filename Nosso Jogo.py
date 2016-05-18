@@ -17,13 +17,8 @@ pygame.display.set_caption("Atrasados do Insper")
 
 
 img = pygame.image.load("C:\Stickboy.png")
-<<<<<<< HEAD
-img2 = pygame.image.load("C:\Rua_2.png")
-img3 = pygame.image.load("C:\Carro.png")
-=======
 img2 = pygame.image.load("C:\Rua2.png")
 img3 = pygame.image.load("C:\Carro ferrari.png")
->>>>>>> 9b0eb1249180120c2adbea9af47ec8ce434c479b
 
 pygame.display.update()
 
@@ -36,18 +31,10 @@ persoY= 650
 lead_x=300
 lead_y=550 
 
-<<<<<<< HEAD
 j= random.randint(0,2)
 lista = [100,200,300]
 ParedeX= lista [j]
 
-
-=======
-
-
-randParedeX= random.randrange(100,200)
->>>>>>> 9b0eb1249180120c2adbea9af47ec8ce434c479b
-#randParedeX2= random.randrange(220,300)
 ParedeY= 0
 lead_y_change= 0
 

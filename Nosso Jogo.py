@@ -15,7 +15,7 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
 img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua2.png")
+img2 = pygame.image.load("C:\Rua Melhor.png")
 img3 = pygame.image.load("C:\Carro.png")
 
 

@@ -1,5 +1,6 @@
 import pygame
 import random
+import os
 pygame.init()
 
 red =(255,0,0)
@@ -14,23 +15,26 @@ clock = pygame.time.Clock()
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
-<<<<<<< HEAD
-#img = pygame.image.load("C:\Projeto-Final-DesSoft\Stickboy.png")
-=======
-img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua Melhor.png")
-img3 = pygame.image.load("C:\Carro.png")
 
->>>>>>> 94912a25e00383ce57b125adade02a1b42091dce
+img = pygame.image.load("C:\Stickboy.png")
+img2 = pygame.image.load("C:\Rua_2.png")
+img3 = pygame.image.load("C:\Carro.png")
 
 pygame.display.update()
 
 gameExit= False
 
-lead_x=200
+persoX= 100
+persoY= 650
+
+lead_x=300
 lead_y=550 
 
-randParedeX= random.randrange(100,200)
+j= random.randint(0,2)
+lista = [100,200,300]
+ParedeX= lista [j]
+
+
 #randParedeX2= random.randrange(220,300)
 ParedeY= 0
 lead_y_change= 0
@@ -41,9 +45,11 @@ while not gameExit:
         if event.type==pygame.QUIT:         
             gameExit=True
         
+        
         if ParedeY>650:
-          randParedeX= random.randrange(100,300)
-          ParedeY= 0  
+            j= random.randint(0,2)
+            ParedeX= lista [j]
+            ParedeY= 0  
         
         if event.type == pygame.KEYDOWN:
 
@@ -66,20 +72,14 @@ while not gameExit:
      
      #Rua      
      #pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
-     gameDisplay.blit(img2,(100,50,350,650))        
+     gameDisplay.blit(img2,(100,0,300,650))        
      #Personagem     
      #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
-     gameDisplay.blit(img, (lead_x,lead_y))
+     gameDisplay.blit(img,(lead_x, lead_y,100,100))
      #Barreiras
-<<<<<<< HEAD
-     Bar_1=pygame.draw.rect(gameDisplay,black,[randParedeX1,ParedeY,100,20])
-     
-    # Bar_2=pygame.draw.rect(gameDisplay,red,[randParedeX2,ParedeY,100,20])
-=======
      #pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
-     gameDisplay.blit(img3,[randParedeX,ParedeY,100,20])
->>>>>>> 94912a25e00383ce57b125adade02a1b42091dce
-    
+     gameDisplay.blit(img3,[ParedeX,ParedeY,100,100])
+
 
 
      pygame.display.update()

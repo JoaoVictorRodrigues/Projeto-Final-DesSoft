@@ -15,22 +15,30 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
 img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua Melhor.png")
-img3 = pygame.image.load("C:\Carro.png")
+img2 = pygame.image.load("C:\Rua2.png")
+img3 = pygame.image.load("C:\Carro ferrari.png")
 
 
 pygame.display.update()
+
 
 gameExit= False
 
 lead_x=200
 lead_y=550 
 
+
+
 randParedeX= random.randrange(100,200)
 #randParedeX2= random.randrange(220,300)
 ParedeY= 0
 lead_y_change= 0
 
+font = pygame.font.SysFont(None, 25)
+
+def menssage_to_screen(msg,cor):
+    screen_text = font.render(msg, True, cor)
+    gameDisplay.blit(screen_text, [display_width/2,display_height/2])
 
 while not gameExit:
      for event in pygame.event.get():
@@ -77,6 +85,10 @@ while not gameExit:
 
      pygame.display.update()
      clock.tick(10)
+     
+message_to_screen("O João é Otário", red)     
+pygame.display.update()
+time.sleep(2)
      
 pygame.quit()
 

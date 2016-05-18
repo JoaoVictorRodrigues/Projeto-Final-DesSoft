@@ -8,8 +8,8 @@ white = (255,255,255)
 black = (0,0,0)
 red = (255,0,0)
 
-display_width = 800
-display_height  = 600
+display_width = 500
+display_height  = 750
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('Sigi lixo')

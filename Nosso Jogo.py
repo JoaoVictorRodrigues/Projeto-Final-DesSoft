@@ -36,9 +36,7 @@ lead_y_change= 0
 
 font = pygame.font.SysFont(None, 25)
 
-def menssage_to_screen(msg,cor):
-    screen_text = font.render(msg, True, cor)
-    gameDisplay.blit(screen_text, [display_width/2,display_height/2])
+
 
 while not gameExit:
      for event in pygame.event.get():
@@ -61,12 +59,6 @@ while not gameExit:
                 if 100<=lead_x<300:
                     lead_x +=100
 
-
-
-             
-       
-            
-
      ParedeY += lead_y_change
      gameDisplay.fill(white) 
      
@@ -86,10 +78,16 @@ while not gameExit:
      pygame.display.update()
      clock.tick(10)
      
-message_to_screen("O João é Otário", red)     
-pygame.display.update()
-time.sleep(2)
+largura_carro_x = 100
+altura_carro_y = 100      
      
-pygame.quit()
+x=100
+y=100     
+     
 
+					
+					
+     
+
+pygame.quit()
 quit()

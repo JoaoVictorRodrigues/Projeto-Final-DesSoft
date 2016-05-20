@@ -1,5 +1,6 @@
 import pygame
 import random
+import os
 pygame.init()
 
 red =(255,0,0)
@@ -14,23 +15,26 @@ clock = pygame.time.Clock()
 gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
 
+
 img = pygame.image.load("C:\Stickboy.png")
 img2 = pygame.image.load("C:\Rua2.png")
 img3 = pygame.image.load("C:\Carro ferrari.png")
-
 
 pygame.display.update()
 
 
 gameExit= False
 
-lead_x=200
+persoX= 100
+persoY= 650
+
+lead_x=300
 lead_y=550 
 
+j= random.randint(0,2)
+lista = [100,200,300]
+ParedeX= lista [j]
 
-
-randParedeX= random.randrange(100,200)
-#randParedeX2= random.randrange(220,300)
 ParedeY= 0
 lead_y_change= 0
 
@@ -43,9 +47,11 @@ while not gameExit:
         if event.type==pygame.QUIT:         
             gameExit=True
         
-        if ParedeY>600:
-          randParedeX= random.randrange(100,300)
-          ParedeY= 0  
+        
+        if ParedeY>650:
+            j= random.randint(0,2)
+            ParedeX= lista [j]
+            ParedeY= 0  
         
         if event.type == pygame.KEYDOWN:
 
@@ -58,21 +64,22 @@ while not gameExit:
            elif event.key==pygame.K_RIGHT:
                 if 100<=lead_x<300:
                     lead_x +=100
-
+                    
+                    
      ParedeY += lead_y_change
      gameDisplay.fill(white) 
      
      
      #Rua      
      #pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
-     gameDisplay.blit(img2,(100,50,350,650))        
+     gameDisplay.blit(img2,(100,0,300,650))        
      #Personagem     
      #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
-     gameDisplay.blit(img, (lead_x,lead_y))
+     gameDisplay.blit(img,(lead_x, lead_y,100,100))
      #Barreiras
      #pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
-     gameDisplay.blit(img3,[randParedeX,ParedeY,100,20])
-    
+     gameDisplay.blit(img3,[ParedeX,ParedeY,100,100])
+
 
 
      pygame.display.update()

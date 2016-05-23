@@ -8,7 +8,7 @@ white=(255,255,255)
 black=(0,0,0)
 gray=(128,128,128)
 blue=(0,0,255)
-
+green= (0,255,0)
 
 clock = pygame.time.Clock()
 
@@ -40,9 +40,50 @@ ParedeX= lista [j]
 ParedeY= 0
 lead_y_change= 0
 
+littlefont = pygame.font.SysFont("comicsansms", 20)
 smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 85)
+
+def tela_inicial():
+    
+    intro = True
+    
+    while intro:
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_c:
+                    intro = False
+                if event.key == pygame.K_q:
+                        pygame.quit()
+                        quit()
+        
+        
+        
+        gameDisplay.fill(white)
+        message_to_screen("Atrasados do Insper",
+                          green, -100, size = "medium")
+        message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
+                          black, 0, size = "little")
+        message_to_screen("chagar ao Inser. Mas como é                   chegar no",
+                          black, 20, size = "little")
+        message_to_screen("                              impossível",
+                          red, 20, size = "little")
+        message_to_screen("horário seu real objetivo é chegar o mais",
+                          black, 40, size = "little")
+        message_to_screen("longe possível!!",
+                          black, 60, size = "little")
+                          
+        message_to_screen("Pressione C para jogar ou Q para sair",
+                          black, 140, size = "small")
+                          
+        pygame.display.update()
+        clock.tick(30)
+                          
 
 
 def text_objects(text, color, size):
@@ -52,6 +93,8 @@ def text_objects(text, color, size):
         textSurface = medfont.render(text, True, color)
     elif size == "large":
         textSurface = largefont.render(text, True, color)        
+    elif size == "little":
+        textSurface = littlefont.render(text, True, color)
         
     return textSurface, textSurface.get_rect()
 
@@ -80,7 +123,7 @@ def gameLoop():
         while gameOver == True:
             gameDisplay.fill(blue)
             message_to_screen("Game Over!", red, -50, size = "large")
-            message_to_screen("Press C to play again or Q to quit", black, 0,
+            message_to_screen("Pressione C para jogar ou Q para sair", black, 0,
                               size = "small")
             message_to_screen("Score: "+str(score), black, 50, size = "medium")
             pygame.display.update()
@@ -141,7 +184,7 @@ def gameLoop():
 #    y=100     
 #         
 #       
-        score+=30
+        score+=1
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+100 == ParedeY and lead_x == ParedeX:
              gameOver = True
 	
@@ -149,5 +192,6 @@ def gameLoop():
     
     pygame.quit()
     quit()
-    
+
+tela_inicial()
 gameLoop()

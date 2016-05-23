@@ -42,9 +42,10 @@ lead_y_change= 0
 
 font = pygame.font.SysFont(None, 25)
 
+
 def message_to_screen(msg,color):
     screen_text = font.render(msg, True, color)
-    gameDisplay.blit(screen_text,[250,325])
+    gameDisplay.blit(screen_text,[200,300])
 
 def gameLoop():
 
@@ -64,7 +65,8 @@ def gameLoop():
     while not gameExit:
         while gameOver == True:
             gameDisplay.fill(white)
-            message_to_screen("Game over, press C to play again or Q to quit", red)
+            message_to_screen("Game over, press C to play again", red)
+            message_to_screen("        or Q to quit", red)
             pygame.display.update()
         
             for event in pygame.event.get():
@@ -123,7 +125,7 @@ def gameLoop():
 #    y=100     
 #         
 #    
-        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y:
+        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+100 == ParedeY and lead_x == ParedeX:
              gameOver = True
 	
          

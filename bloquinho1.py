@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import pygame
 import time
+import random
 
 pygame.init()
 
@@ -8,11 +9,11 @@ white = (255,255,255)
 black = (0,0,0)
 red = (255,0,0)
 
-display_width = 500
-display_height  = 750
+display_width = 800
+display_height  = 600
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Sigi lixo')
+pygame.display.set_caption('Slither')
 
 
 
@@ -37,6 +38,9 @@ def gameLoop():
 
     lead_x_change = 0
     lead_y_change = 0
+
+    randAppleX = round(random.randrange(0, display_width-block_size)/10.0)*10.0
+    randAppleY = round(random.randrange(0, display_height-block_size)/10.0)*10.0
     
     while not gameExit:
 
@@ -77,9 +81,14 @@ def gameLoop():
 
         lead_x += lead_x_change
         lead_y += lead_y_change
+        
         gameDisplay.fill(white)
+        pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY, block_size,block_size])
         pygame.draw.rect(gameDisplay, black, [lead_x,lead_y,block_size,block_size])
         pygame.display.update()
+
+        if lead_x == randAppleX and lead_y == randAppleY:
+            print("om nom nom")
 
         clock.tick(FPS)
         
@@ -88,4 +97,20 @@ def gameLoop():
 
 
 gameLoop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

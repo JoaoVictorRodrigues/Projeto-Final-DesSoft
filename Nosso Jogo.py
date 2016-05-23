@@ -71,6 +71,7 @@ def gameLoop():
     
     ParedeY= 0
     lead_y_change= 0
+    score= 0
 
     gameExit = False
     gameOver = False
@@ -81,7 +82,7 @@ def gameLoop():
             message_to_screen("Game Over!", red, -50, size = "large")
             message_to_screen("Press C to play again or Q to quit", black, 0,
                               size = "small")
-            message_to_screen("Score: __", black, 50, size = "medium")
+            message_to_screen("Score: "+str(score), black, 50, size = "medium")
             pygame.display.update()
         
             for event in pygame.event.get():
@@ -139,7 +140,8 @@ def gameLoop():
 #    x=100
 #    y=100     
 #         
-#    
+#       
+        score+=30
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+100 == ParedeY and lead_x == ParedeX:
              gameOver = True
 	

@@ -40,17 +40,24 @@ ParedeX= lista [j]
 ParedeY= 0
 lead_y_change= 0
 
-font = pygame.font.SysFont(None, 25)
+smallfont = pygame.font.SysFont("comicsansms", 25)
+medfont = pygame.font.SysFont("comicsansms", 50)
+largefont = pygame.font.SysFont("comicsansms", 85)
 
-def text_objects(text, color):
-    textSurface = font.render(text, True, color)
+
+def text_objects(text, color, size):
+    if size == "small":
+        textSurface = smallfont.render(text, True, color)
+    elif size == "medium":
+        textSurface = medfont.render(text, True, color)
+    elif size == "large":
+        textSurface = largefont.render(text, True, color)        
+        
     return textSurface, textSurface.get_rect()
 
-def message_to_screen(msg,color):
-    textSurf, textRect = text_objects(msg, color)
-#    screen_text = font.render(msg, True, color)
-#    gameDisplay.blit(screen_text,[200,300])
-    textRect.center = 250, 325
+def message_to_screen(msg,color, y_displace = 0, size = "small"):
+    textSurf, textRect = text_objects(msg, color, size)
+    textRect.center = 250, 325+y_displace
     gameDisplay.blit(textSurf, textRect)
 
 def gameLoop():
@@ -70,8 +77,11 @@ def gameLoop():
     
     while not gameExit:
         while gameOver == True:
-            gameDisplay.fill(white)
-            message_to_screen("Game over, press C to play again or Q to quit", red)
+            gameDisplay.fill(blue)
+            message_to_screen("Game Over!", red, -50, size = "large")
+            message_to_screen("Press C to play again or Q to quit", black, 0,
+                              size = "small")
+            message_to_screen("Score: __", black, 50, size = "medium")
             pygame.display.update()
         
             for event in pygame.event.get():

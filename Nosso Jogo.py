@@ -25,6 +25,8 @@ pygame.display.update()
 
 gameExit= False
 
+
+
 persoX= 100
 persoY= 650
 
@@ -112,17 +114,18 @@ def gameLoop():
     
     
         pygame.display.update()
-        clock.tick(10)
+        clock.tick(30)
          
-    largura_carro_x = 100
-    altura_carro_y = 100      
-         
-    x=100
-    y=100     
-         
-    
-    					
-    					
+#    largura_carro_x = 100
+#    altura_carro_y = 100      
+#         
+#    x=100
+#    y=100     
+#         
+#    
+        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y:
+             gameOver = True
+	
          
     
     pygame.quit()

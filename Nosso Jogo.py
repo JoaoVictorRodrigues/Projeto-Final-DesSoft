@@ -238,12 +238,15 @@ def gameLoop():
         score+=1
         lead_y_change =+10
 
-        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+70 == ParedeY and lead_x == ParedeX:
+        if ParedeX+10 <= lead_x+10 < ParedeX+80 and ParedeY+10 <= lead_y+10 < ParedeY+80:
+            gameOver = True
+        if ParedeX+10 <= lead_x+70 < ParedeX+80 and ParedeY+10 <= lead_y+80 < ParedeY+80:
+            gameOver = True
             
-             gameOver = True
-        if lead_x == ParedeX_2 and lead_y == ParedeY_2 or lead_x == ParedeX_2 and ParedeY_2+50 == lead_y or lead_y+70 == ParedeY_2 and lead_x == ParedeX_2:
-             gameOver = True
-	    
+        if ParedeX_2+10 <= lead_x+10 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+10 < ParedeY_2+80:
+            gameOver = True
+        if ParedeX_2+10 <= lead_x+70 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+80 < ParedeY_2+80:
+            gameOver = True	    
     
     pygame.quit()
     quit()

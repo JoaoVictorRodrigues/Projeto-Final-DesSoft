@@ -16,7 +16,7 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("Stickboy.png")
+img = pygame.image.load("pesonagem.png")
 img2 = pygame.image.load("Rua_2.png")
 img3 = pygame.image.load("Carro ferrari.png")
 img4 = pygame.image.load("carro verde.png")
@@ -80,6 +80,7 @@ def pause():
 def score(score):
     text = smallfont.render("Score: "+str(score), True, black)
     gameDisplay.blit(text, [0,0])
+    
 
 def tela_inicial():
     
@@ -105,7 +106,7 @@ def tela_inicial():
                           green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
                           black, 0, size = "little")
-        message_to_screen("chagar ao Inser. Mas como é                   chegar no",
+        message_to_screen("chagar ao Insper. Mas como é                  chegar no",
                           black, 20, size = "little")
         message_to_screen("                              impossível",
                           red, 20, size = "little")

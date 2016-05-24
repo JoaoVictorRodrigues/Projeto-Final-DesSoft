@@ -193,23 +193,30 @@ def gameLoop():
             ParedeY_2= Posi [k]
                
         
+
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
            
            
            if event.type == pygame.KEYDOWN:
+        
+        
+            for event in pygame.event.get():
+                if event.type==pygame.QUIT:         
+                    gameExit=True
+             
                
-              
-               if event.key == pygame.K_LEFT:
-                   if 100<lead_x<=300:
-                       lead_x -=100
+            if event.type == pygame.KEYDOWN:
+                   if event.key == pygame.K_LEFT:
+                       if 100<lead_x<=300:
+                           lead_x -=100
                        
-               elif event.key==pygame.K_RIGHT:
-                   if 100<=lead_x<300:
-                       lead_x +=100
-               elif event.key == pygame.K_p:
-                   pause()
+                   elif event.key==pygame.K_RIGHT:
+                           if 100<=lead_x<300:
+                               lead_x +=100
+                   elif event.key == pygame.K_p:
+                                   pause()
                        
         ParedeY += lead_y_change
         ParedeY_2 +=lead_y_change
@@ -230,7 +237,9 @@ def gameLoop():
         clock.tick(20)
         score+=1
         lead_y_change =+10
+
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+70 == ParedeY and lead_x == ParedeX:
+            
              gameOver = True
         if lead_x == ParedeX_2 and lead_y == ParedeY_2 or lead_x == ParedeX_2 and ParedeY_2+50 == lead_y or lead_y+70 == ParedeY_2 and lead_x == ParedeX_2:
              gameOver = True

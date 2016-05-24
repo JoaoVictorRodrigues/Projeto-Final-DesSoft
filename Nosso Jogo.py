@@ -1,6 +1,6 @@
 import pygame
 import random
-import os
+#import os
 pygame.init()
 
 red =(255,0,0)
@@ -40,10 +40,42 @@ ParedeX= lista [j]
 ParedeY= 0
 lead_y_change= 0
 
+
 littlefont = pygame.font.SysFont("comicsansms", 20)
 smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 85)
+large1font = pygame.font.SysFont("hightowertext", 50)
+
+def pause():
+    
+    paused = True
+    
+    while paused:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_c:
+                    paused = False
+                elif event.key == pygame.K_q:
+                    pygame.quit()
+                    quit()
+        gameDisplay.fill(white)
+        message_to_screen("Pause",
+                          red, -100, size = "large")
+        message_to_screen("Pressione C para continuar ou Q para sair",
+                          black, 50, size = "small")
+        pygame.display.update()
+        clock.tick(5)
+        
+                
+
+def score(score):
+    text = smallfont.render("Score: "+str(score), True, black)
+    gameDisplay.blit(text, [0,0])
 
 def tela_inicial():
     
@@ -66,7 +98,7 @@ def tela_inicial():
         
         gameDisplay.fill(white)
         message_to_screen("Atrasados do Insper",
-                          green, -100, size = "medium")
+                          green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
                           black, 0, size = "little")
         message_to_screen("chagar ao Inser. Mas como é                   chegar no",
@@ -78,8 +110,10 @@ def tela_inicial():
         message_to_screen("longe possível!!",
                           black, 60, size = "little")
                           
-        message_to_screen("Pressione C para jogar ou Q para sair",
+        message_to_screen("Pressione C para jogar, P para pausar e",
                           black, 140, size = "small")
+        message_to_screen("Q para sair.",
+                          black, 160, size = "small")
                           
         pygame.display.update()
         clock.tick(30)
@@ -95,6 +129,8 @@ def text_objects(text, color, size):
         textSurface = largefont.render(text, True, color)        
     elif size == "little":
         textSurface = littlefont.render(text, True, color)
+    elif size == "large1":
+        textSurface = large1font.render(text, True, color)
         
     return textSurface, textSurface.get_rect()
 
@@ -156,36 +192,27 @@ def gameLoop():
                elif event.key==pygame.K_RIGHT:
                    if 100<=lead_x<300:
                        lead_x +=100
-                       
+               elif event.key == pygame.K_p:
+                   pause()
                        
         ParedeY += lead_y_change
         gameDisplay.fill(white) 
         
         
-        #Rua      
-        #pygame.draw.rect(gameDisplay,gray,[100,0,300,650])
-        gameDisplay.blit(img2,(100,0,300,650))        
-        #Personagem     
-        #pygame.draw.rect(gameDisplay,blue,[lead_x,lead_y,100,100])
+        gameDisplay.blit(img2,(100,0,300,650))          
         gameDisplay.blit(img,(lead_x, lead_y,100,100))
-        #Barreiras
-        #pygame.draw.rect(gameDisplay,black,[randParedeX,ParedeY,100,20])
         gameDisplay.blit(img3,[ParedeX,ParedeY,100,100])
-    
-    
+        text = smallfont.render(" Score: ", True, black)
+        gameDisplay.blit(text, [0,0])
+        text = smallfont.render("  "+str(score), True, black)
+        gameDisplay.blit(text, [0,20])    
     
         pygame.display.update()
         clock.tick(30)
-         
-#    largura_carro_x = 100
-#    altura_carro_y = 100      
-#         
-#    x=100
-#    y=100     
-#         
-#       
+          
+        
         score+=1
-        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+100 == ParedeY and lead_x == ParedeX:
+        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+90 == ParedeY and lead_x == ParedeX:
              gameOver = True
 	
          

@@ -17,7 +17,7 @@ pygame.display.set_caption("Atrasados do Insper")
 
 
 img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua2.png")
+img2 = pygame.image.load("C:\Rua_2.png")
 img3 = pygame.image.load("C:\Carro ferrari.png")
 
 pygame.display.update()

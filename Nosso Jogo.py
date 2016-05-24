@@ -180,22 +180,24 @@ def gameLoop():
                         gameOver = False
                     if event.key == pygame.K_c:
                         gameLoop()
+                        
+        
+        if ParedeY>650:
+            j= random.randint(0,2)
+            ParedeX= lista [j]
+            ParedeY= Posi [j]
+              
+               
+            k= random.randint(0,2)
+            ParedeX_2= lista [k]
+            ParedeY_2= Posi [k]
+               
         
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
            
            
-           if ParedeY>650:
-               j= random.randint(0,2)
-               ParedeX= lista [j]
-               ParedeY= Posi [j]
-              
-               
-               k= random.randint(0,2)
-               ParedeX_2= lista [k]
-               ParedeY_2= Posi [k]
-               
            if event.type == pygame.KEYDOWN:
                
               

@@ -181,33 +181,37 @@ def gameLoop():
                     if event.key == pygame.K_c:
                         gameLoop()
         
-        for event in pygame.event.get():
-           if event.type==pygame.QUIT:         
-               gameExit=True
-           
-           
-           if ParedeY>650:
+            if ParedeY>650:
+               
                j= random.randint(0,2)
                ParedeX= lista [j]
                ParedeY= Posi [j]
-              
+               ParedeY += lead_y_change
                
                k= random.randint(0,2)
                ParedeX_2= lista [k]
                ParedeY_2= Posi [k]
-               
-           if event.type == pygame.KEYDOWN:
-               
+               ParedeY_2 +=lead_y_change
               
-               if event.key == pygame.K_LEFT:
-                   if 100<lead_x<=300:
-                       lead_x -=100
+               lead_y_change =+10
+               ParedeY_2 != ParedeY
+        
+        
+            for event in pygame.event.get():
+                if event.type==pygame.QUIT:         
+                    gameExit=True
+             
+               
+            if event.type == pygame.KEYDOWN:
+                   if event.key == pygame.K_LEFT:
+                       if 100<lead_x<=300:
+                           lead_x -=100
                        
-               elif event.key==pygame.K_RIGHT:
-                   if 100<=lead_x<300:
-                       lead_x +=100
-               elif event.key == pygame.K_p:
-                   pause()
+                   elif event.key==pygame.K_RIGHT:
+                           if 100<=lead_x<300:
+                               lead_x +=100
+                   elif event.key == pygame.K_p:
+                                   pause()
                        
         ParedeY += lead_y_change
         ParedeY_2 +=lead_y_change
@@ -228,6 +232,7 @@ def gameLoop():
         clock.tick(20)
         score+=1
         lead_y_change =+10
+       
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+90 == ParedeY and lead_x == ParedeX:
              gameOver = True
 	    

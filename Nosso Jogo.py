@@ -16,10 +16,10 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua_2.png")
-img3 = pygame.image.load("C:\Carro ferrari.png")
-img4 = pygame.image.load("C:\carro verde.png")
+img = pygame.image.load("Stickboy.png")
+img2 = pygame.image.load("Rua_2.png")
+img3 = pygame.image.load("Carro ferrari.png")
+img4 = pygame.image.load("carro verde.png")
 
 pygame.display.update()
 
@@ -180,7 +180,20 @@ def gameLoop():
                         gameOver = False
                     if event.key == pygame.K_c:
                         gameLoop()
+                        
         
+        if ParedeY>650:
+            j= random.randint(0,2)
+            ParedeX= lista [j]
+            ParedeY= Posi [j]
+              
+               
+            k= random.randint(0,2)
+            ParedeX_2= lista [k]
+            ParedeY_2= Posi [k]
+               
+        
+<<<<<<< HEAD
             if ParedeY>650:
                
                j= random.randint(0,2)
@@ -192,6 +205,15 @@ def gameLoop():
                ParedeX_2= lista [k]
                ParedeY_2= Posi [k]
                ParedeY_2 +=lead_y_change
+=======
+        for event in pygame.event.get():
+           if event.type==pygame.QUIT:         
+               gameExit=True
+           
+           
+           if event.type == pygame.KEYDOWN:
+               
+>>>>>>> f4968db36d78ee4eeac23749becb01efc6619dff
               
                lead_y_change =+10
                ParedeY_2 != ParedeY
@@ -234,6 +256,8 @@ def gameLoop():
         lead_y_change =+10
        
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+90 == ParedeY and lead_x == ParedeX:
+             gameOver = True
+        if lead_x == ParedeX_2 and lead_y == ParedeY_2 or lead_x == ParedeX_2 and ParedeY_2+50 == lead_y or lead_y+90 == ParedeY_2 and lead_x == ParedeX_2:
              gameOver = True
 	    
     

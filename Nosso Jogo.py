@@ -12,7 +12,7 @@ green= (0,255,0)
 
 clock = pygame.time.Clock()
 
-gameDisplay=pygame.display.set_mode((500,650))
+gameDisplay=pygame.display.set_mode((500,650),100)
 pygame.display.set_caption("Atrasados do Insper")
     
 
@@ -106,7 +106,7 @@ def tela_inicial():
                           green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
                           black, 0, size = "little")
-        message_to_screen("chagar ao Insper. Mas como é                  chegar no",
+        message_to_screen("chegar ao Insper. Mas como é                  chegar no",
                           black, 20, size = "little")
         message_to_screen("                              impossível",
                           red, 20, size = "little")

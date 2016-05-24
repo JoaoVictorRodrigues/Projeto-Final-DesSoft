@@ -234,7 +234,7 @@ def gameLoop():
         gameDisplay.blit(text, [0,20])    
     
         pygame.display.update()
-        clock.tick(20+0.05*int(score))
+        clock.tick(22+0.03*int(score))
         score+=1
         lead_y_change =+10
 

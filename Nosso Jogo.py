@@ -19,6 +19,7 @@ pygame.display.set_caption("Atrasados do Insper")
 img = pygame.image.load("C:\Stickboy.png")
 img2 = pygame.image.load("C:\Rua_2.png")
 img3 = pygame.image.load("C:\Carro ferrari.png")
+img4 = pygame.image.load("C:\carro verde.png")
 
 pygame.display.update()
 
@@ -216,7 +217,7 @@ def gameLoop():
         gameDisplay.blit(img2,(100,0,300,650)) #Rua          
         gameDisplay.blit(img,(lead_x, lead_y,100,100)) #Personagem
         gameDisplay.blit(img3,[ParedeX,ParedeY,100,100]) # Carro
-        gameDisplay.blit(img3,[ParedeX_2,ParedeY_2,100,100])
+        gameDisplay.blit(img4,[ParedeX_2,ParedeY_2,100,100]) #Carro 2
     
         text = smallfont.render(" Score: ", True, black)
         gameDisplay.blit(text, [0,0])

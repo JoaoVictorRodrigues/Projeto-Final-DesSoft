@@ -229,6 +229,8 @@ def gameLoop():
         lead_y_change =+10
         if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+90 == ParedeY and lead_x == ParedeX:
              gameOver = True
+        if lead_x == ParedeX_2 and lead_y == ParedeY_2 or lead_x == ParedeX_2 and ParedeY_2+50 == lead_y or lead_y+90 == ParedeY_2 and lead_x == ParedeX_2:
+             gameOver = True
 	    
     
     pygame.quit()

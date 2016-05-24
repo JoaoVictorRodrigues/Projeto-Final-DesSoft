@@ -96,7 +96,7 @@ def tela_inicial():
         
         
         
-        gameDisplay.fill(white)
+        gameDisplay.fill(blue)
         message_to_screen("Atrasados do Insper",
                           green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
@@ -196,7 +196,7 @@ def gameLoop():
                    pause()
                        
         ParedeY += lead_y_change
-        gameDisplay.fill(white) 
+        gameDisplay.fill(green) 
         
         
         gameDisplay.blit(img2,(100,0,300,650))          

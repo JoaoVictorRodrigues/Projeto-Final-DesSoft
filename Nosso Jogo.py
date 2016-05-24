@@ -16,10 +16,10 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("C:\Stickboy.png")
-img2 = pygame.image.load("C:\Rua_2.png")
-img3 = pygame.image.load("C:\Carro ferrari.png")
-img4 = pygame.image.load("C:\carro verde.png")
+img = pygame.image.load("Stickboy.png")
+img2 = pygame.image.load("Rua_2.png")
+img3 = pygame.image.load("Carro ferrari.png")
+img4 = pygame.image.load("carro verde.png")
 
 pygame.display.update()
 

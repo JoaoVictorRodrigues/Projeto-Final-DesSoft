@@ -120,7 +120,7 @@ def tela_inicial():
                           black, 160, size = "small")
                           
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(20)
                           
 
 
@@ -234,7 +234,7 @@ def gameLoop():
         gameDisplay.blit(text, [0,20])    
     
         pygame.display.update()
-        clock.tick(20)
+        clock.tick(20+0.05*int(score))
         score+=1
         lead_y_change =+10
 

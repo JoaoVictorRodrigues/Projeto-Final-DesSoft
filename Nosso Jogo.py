@@ -16,10 +16,13 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("Stickboy.png")
+img = pygame.image.load("parado.png")
 img2 = pygame.image.load("Rua_2.png")
-img3 = pygame.image.load("Carro ferrari.png")
-img4 = pygame.image.load("carro verde.png")
+img3 = pygame.image.load("carrov.png")
+img4 = pygame.image.load("carroa.png")
+imgr = pygame.image.load("direita.png")
+imgl = pygame.image.load("esquerda.png")
+
 
 pygame.display.update()
 
@@ -51,6 +54,9 @@ medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 85)
 large1font = pygame.font.SysFont("hightowertext", 50)
 
+
+
+
 def pause():
     
     paused = True
@@ -80,6 +86,7 @@ def pause():
 def score(score):
     text = smallfont.render("Score: "+str(score), True, black)
     gameDisplay.blit(text, [0,0])
+    
 
 def tela_inicial():
     
@@ -105,7 +112,7 @@ def tela_inicial():
                           green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
                           black, 0, size = "little")
-        message_to_screen("chagar ao Inser. Mas como é                   chegar no",
+        message_to_screen("chegar ao Insper. Mas como é                  chegar no",
                           black, 20, size = "little")
         message_to_screen("                              impossível",
                           red, 20, size = "little")
@@ -120,7 +127,7 @@ def tela_inicial():
                           black, 160, size = "small")
                           
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(20)
                           
 
 
@@ -145,7 +152,7 @@ def message_to_screen(msg,color, y_displace = 0, size = "small"):
 
 def gameLoop():
 
-    lead_x=300
+    lead_x=200
     lead_y=550 
     
     Posi = [-50,-100,-175]    
@@ -193,13 +200,22 @@ def gameLoop():
             ParedeY_2= Posi [k]
                
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
            
            
            if event.type == pygame.KEYDOWN:
+<<<<<<< HEAD
                
+=======
+        
+        
+>>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:         
                     gameExit=True
@@ -221,26 +237,37 @@ def gameLoop():
         gameDisplay.fill(green) 
         
         
-        gameDisplay.blit(img2,(100,0,300,650)) #Rua          
-        gameDisplay.blit(img,(lead_x, lead_y,100,100)) #Personagem
+        gameDisplay.blit(img2,[100,0,300,650]) #Rua          
+        if int(score)%2 == 0 and int(score)%5 == 0:
+            gameDisplay.blit(img,[lead_x, lead_y,100,100]) #Personagem
+        elif int(score)%2 == 0:
+            gameDisplay.blit(imgr,[lead_x, lead_y,100,100])
+        else :
+            gameDisplay.blit(imgl,[lead_x, lead_y,100,100])
         gameDisplay.blit(img3,[ParedeX,ParedeY,100,100]) # Carro
         gameDisplay.blit(img4,[ParedeX_2,ParedeY_2,100,100]) #Carro 2
-    
+        
         text = smallfont.render(" Score: ", True, black)
         gameDisplay.blit(text, [0,0])
         text = smallfont.render("  "+str(score), True, black)
         gameDisplay.blit(text, [0,20])    
     
         pygame.display.update()
-        clock.tick(20)
+        clock.tick(22+0.03*int(score))
         score+=1
         lead_y_change =+10
-       
-        if lead_x == ParedeX and lead_y == ParedeY or lead_x == ParedeX and ParedeY+50 == lead_y or lead_y+90 == ParedeY and lead_x == ParedeX:
-             gameOver = True
-        if lead_x == ParedeX_2 and lead_y == ParedeY_2 or lead_x == ParedeX_2 and ParedeY_2+50 == lead_y or lead_y+90 == ParedeY_2 and lead_x == ParedeX_2:
-             gameOver = True
-	    
+
+        
+
+        if ParedeX+10 <= lead_x+10 < ParedeX+80 and ParedeY+10 <= lead_y+10 < ParedeY+110:
+            gameOver = True
+        if ParedeX+10 <= lead_x+70 < ParedeX+80 and ParedeY+10 <= lead_y+80 < ParedeY+110:
+            gameOver = True
+            
+        if ParedeX_2+10 <= lead_x+10 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+10 < ParedeY_2+110:
+            gameOver = True
+        if ParedeX_2+10 <= lead_x+70 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+80 < ParedeY_2+110:
+            gameOver = True	    
     
     pygame.quit()
     quit()

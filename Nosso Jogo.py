@@ -193,19 +193,6 @@ def gameLoop():
             ParedeY_2= Posi [k]
                
         
-<<<<<<< HEAD
-            if ParedeY>650:
-               
-               j= random.randint(0,2)
-               ParedeX= lista [j]
-               ParedeY= Posi [j]
-               ParedeY += lead_y_change
-               
-               k= random.randint(0,2)
-               ParedeX_2= lista [k]
-               ParedeY_2= Posi [k]
-               ParedeY_2 +=lead_y_change
-=======
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
@@ -213,12 +200,6 @@ def gameLoop():
            
            if event.type == pygame.KEYDOWN:
                
->>>>>>> f4968db36d78ee4eeac23749becb01efc6619dff
-              
-               lead_y_change =+10
-               ParedeY_2 != ParedeY
-        
-        
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:         
                     gameExit=True

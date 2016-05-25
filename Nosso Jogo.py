@@ -112,11 +112,7 @@ def tela_inicial():
                           green, -100, size = "large1")
         message_to_screen("Sua meta no jogo é desviar dos carros e tentar",
                           black, 0, size = "little")
-<<<<<<< HEAD
-        message_to_screen("chegar ao Insper. Mas como é                   chegar no",
-=======
         message_to_screen("chegar ao Insper. Mas como é                  chegar no",
->>>>>>> e66d39b31bc3aea6ba097e9682fbac5007e101f0
                           black, 20, size = "little")
         message_to_screen("                              impossível",
                           red, 20, size = "little")

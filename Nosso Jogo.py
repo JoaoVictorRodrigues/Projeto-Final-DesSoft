@@ -12,14 +12,17 @@ green= (0,255,0)
 
 clock = pygame.time.Clock()
 
-gameDisplay=pygame.display.set_mode((500,650),100)
+gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("pesonagem.png")
+img = pygame.image.load("personagem.png")
 img2 = pygame.image.load("Rua_2.png")
-img3 = pygame.image.load("Carro ferrari.png")
-img4 = pygame.image.load("carro verde.png")
+img3 = pygame.image.load("carrov.png")
+img4 = pygame.image.load("carroa.png")
+imgr = pygame.image.load("ashes2.png")
+imgl = pygame.image.load("ashes3.png")
+
 
 pygame.display.update()
 
@@ -50,6 +53,9 @@ smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 85)
 large1font = pygame.font.SysFont("hightowertext", 50)
+
+
+
 
 def pause():
     
@@ -146,7 +152,7 @@ def message_to_screen(msg,color, y_displace = 0, size = "small"):
 
 def gameLoop():
 
-    lead_x=300
+    lead_x=200
     lead_y=550 
     
     Posi = [-50,-100,-175]    
@@ -223,12 +229,24 @@ def gameLoop():
         ParedeY_2 +=lead_y_change
         gameDisplay.fill(green) 
         
+        numimage = 300
+        iimage = 0
+        if iimage >= numimage -1:
+            iimage = 0
+        else:
+            iimage+=100
         
-        gameDisplay.blit(img2,(100,0,300,650)) #Rua          
-        gameDisplay.blit(img,(lead_x, lead_y,100,100)) #Personagem
+        
+        gameDisplay.blit(img2,[100,0,300,650]) #Rua          
+        if int(score)%2 == 0 and int(score)%5 == 0:
+            gameDisplay.blit(img,[lead_x, lead_y,100,100]) #Personagem
+        elif int(score)%2 == 0:
+            gameDisplay.blit(imgr,[lead_x, lead_y,100,100])
+        else :
+            gameDisplay.blit(imgl,[lead_x, lead_y,100,100])
         gameDisplay.blit(img3,[ParedeX,ParedeY,100,100]) # Carro
         gameDisplay.blit(img4,[ParedeX_2,ParedeY_2,100,100]) #Carro 2
-    
+        
         text = smallfont.render(" Score: ", True, black)
         gameDisplay.blit(text, [0,0])
         text = smallfont.render("  "+str(score), True, black)
@@ -239,14 +257,16 @@ def gameLoop():
         score+=1
         lead_y_change =+10
 
-        if ParedeX+10 <= lead_x+10 < ParedeX+80 and ParedeY+10 <= lead_y+10 < ParedeY+80:
+        
+
+        if ParedeX+10 <= lead_x+10 < ParedeX+80 and ParedeY+10 <= lead_y+10 < ParedeY+110:
             gameOver = True
-        if ParedeX+10 <= lead_x+70 < ParedeX+80 and ParedeY+10 <= lead_y+80 < ParedeY+80:
+        if ParedeX+10 <= lead_x+70 < ParedeX+80 and ParedeY+10 <= lead_y+80 < ParedeY+110:
             gameOver = True
             
-        if ParedeX_2+10 <= lead_x+10 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+10 < ParedeY_2+80:
+        if ParedeX_2+10 <= lead_x+10 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+10 < ParedeY_2+110:
             gameOver = True
-        if ParedeX_2+10 <= lead_x+70 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+80 < ParedeY_2+80:
+        if ParedeX_2+10 <= lead_x+70 < ParedeX_2+80 and ParedeY_2+10 <= lead_y+80 < ParedeY_2+110:
             gameOver = True	    
     
     pygame.quit()

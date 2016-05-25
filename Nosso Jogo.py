@@ -229,13 +229,6 @@ def gameLoop():
         ParedeY_2 +=lead_y_change
         gameDisplay.fill(green) 
         
-        numimage = 300
-        iimage = 0
-        if iimage >= numimage -1:
-            iimage = 0
-        else:
-            iimage+=100
-        
         
         gameDisplay.blit(img2,[100,0,300,650]) #Rua          
         if int(score)%2 == 0 and int(score)%5 == 0:

@@ -16,12 +16,12 @@ gameDisplay=pygame.display.set_mode((500,650))
 pygame.display.set_caption("Atrasados do Insper")
     
 
-img = pygame.image.load("personagem.png")
+img = pygame.image.load("parado.png")
 img2 = pygame.image.load("Rua_2.png")
 img3 = pygame.image.load("carrov.png")
 img4 = pygame.image.load("carroa.png")
-imgr = pygame.image.load("ashes2.png")
-imgl = pygame.image.load("ashes3.png")
+imgr = pygame.image.load("direita.png")
+imgl = pygame.image.load("esquerda.png")
 
 
 pygame.display.update()

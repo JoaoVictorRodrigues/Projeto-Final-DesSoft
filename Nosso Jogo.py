@@ -55,6 +55,30 @@ largefont = pygame.font.SysFont("comicsansms", 85)
 large1font = pygame.font.SysFont("hightowertext", 50)
 
 
+def get_high_score():
+    
+    high_score = 0
+ 
+    try:
+        high_score_file = open("high_score.txt", "r")
+        high_score = int(high_score_file.read())
+        high_score_file.close()
+        pass
+    except IOError:
+        pass
+    except ValueError:
+        pass
+ 
+    return high_score
+
+def save_high_score(new_high_score):
+    try:
+        high_score_file = open("high_score.txt", "w")
+        high_score_file.write(str(new_high_score))
+        high_score_file.close()
+    except IOError:
+        pass
+
 
 
 def pause():
@@ -162,6 +186,7 @@ def gameLoop():
     ParedeY= -100
     lead_y_change= 0
     score= 0
+    high_score = 0
     
     k= random.randint(0,2)
     ParedeX_2= lista [k]
@@ -178,6 +203,7 @@ def gameLoop():
             message_to_screen("Pressione C para jogar ou Q para sair", black, 0,
                               size = "small")
             message_to_screen("Score: "+str(score), black, 50, size = "medium")
+            message_to_screen("High Score: "+str(high_score), black, 200, size = "medium")
             pygame.display.update()
         
             for event in pygame.event.get():
@@ -249,6 +275,18 @@ def gameLoop():
         clock.tick(22+0.03*int(score))
         score+=1
         lead_y_change =+10
+        high_score = get_high_score()
+     
+        current_score = 0
+        try:
+            current_score = int(score)
+        except ValueError:
+            pass
+        if current_score > high_score:
+            pass
+            save_high_score(current_score)
+        else:
+            pass
 
         
 

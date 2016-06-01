@@ -84,7 +84,8 @@ def save_high_score(new_high_score):
 def pause():
     
     paused = True
-    
+    high_score = 0
+    high_score = get_high_score()
     while paused:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -102,6 +103,7 @@ def pause():
                           red, -100, size = "large")
         message_to_screen("Pressione C para continuar ou Q para sair",
                           black, 50, size = "small")
+        message_to_screen("High Score: "+str(high_score), black, 200, size = "large1")
         pygame.display.update()
         clock.tick(5)
         
@@ -115,6 +117,9 @@ def score(score):
 def tela_inicial():
     
     intro = True
+    
+    high_score = 0
+    high_score = get_high_score()
     
     while intro:
         
@@ -149,6 +154,7 @@ def tela_inicial():
                           black, 140, size = "small")
         message_to_screen("Q para sair.",
                           black, 160, size = "small")
+        message_to_screen("High Score: "+str(high_score), black, -200, size = "large1")
                           
         pygame.display.update()
         clock.tick(20)
@@ -203,7 +209,7 @@ def gameLoop():
             message_to_screen("Pressione C para jogar ou Q para sair", black, 0,
                               size = "small")
             message_to_screen("Score: "+str(score), black, 50, size = "medium")
-            message_to_screen("High Score: "+str(high_score), black, 200, size = "medium")
+            message_to_screen("High Score: "+str(high_score), black, 200, size = "large1")
             pygame.display.update()
         
             for event in pygame.event.get():
@@ -226,22 +232,12 @@ def gameLoop():
             ParedeY_2= Posi [k]
                
         
-<<<<<<< HEAD
-=======
-
->>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
            
            
            if event.type == pygame.KEYDOWN:
-<<<<<<< HEAD
-               
-=======
-        
-        
->>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:         
                     gameExit=True

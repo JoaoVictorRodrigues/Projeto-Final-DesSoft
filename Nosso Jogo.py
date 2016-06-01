@@ -226,15 +226,22 @@ def gameLoop():
             ParedeY_2= Posi [k]
                
         
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
         for event in pygame.event.get():
            if event.type==pygame.QUIT:         
                gameExit=True
            
            
            if event.type == pygame.KEYDOWN:
+<<<<<<< HEAD
+               
+=======
         
         
+>>>>>>> 5932860b7abdd06128792032d5eca5dc936d8264
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:         
                     gameExit=True
